@@ -64,6 +64,8 @@ Then:
 ls
 cat test.txt
 
+![alt text](image-1.png)
+
 
 ✔️ File transferred successfully
 
