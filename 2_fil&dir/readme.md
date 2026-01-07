@@ -10,7 +10,7 @@ Linux workflows depend on mastering files and directories.
 Prints the current working directory.
 
 ### `ls`
-Lists files and directories.:contentReference[oaicite:1]{index=1}
+Lists files and directories.
 
 Example:
 ```
