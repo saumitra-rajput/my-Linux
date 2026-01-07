@@ -8,17 +8,148 @@ Displays current logged-in user.
 ### `id`
 Shows user/group identity.
 
-### `useradd`, `userdel`
-Add and remove users:
-```bash
-sudo useradd newuser
-sudo userdel newuser
+### `useradd`
+Creates a user account only. Does NOT create a home directory by default. Home directory like /home/username will not exist
+Useful for system users or service accounts
+
+User exists
+
+No personal files, no .bashrc, .profile, etc.
+
+Example
 ```
-### `usermod`
-Modify user info:
+sudo useradd newuser
+
+```
+### `useradd -m username`
+
+Creates a user account. 
+Creates a home directory (usually /home/username).
+Copies default config files from /etc/skel
+
+User exists
+
+Home directory with standard shell configs.
+
+Example
+```
+sudo useradd -m newuser
+```
+
+
+
+
+### `userdel -r username`
+Deletes the user and their home directory
 
 Example:
 ```
-sudo usermod -aG sudo newuser
+userdel -r username
+```
+
+
+### `userdel`
+Deletes the user only (home directory stays)
+
+Example:
+```
+sudo userdel username
 
 ```
+### `userdel`
+Deletes the user only (home directory stays)
+
+Example:
+```
+sudo userdel username
+
+```
+
+### `cat /etc/passwd`
+Displays all user accounts on the system
+
+Shows user details like:
+
+Example:
+```
+cat /etc/passwd
+username:x:UID:GID:comment:home_directory:login_shell
+
+```
+
+### `sudo passwd user`
+set/change a user password
+
+Example:
+```
+sudo passwd user
+
+```
+### `su`
+To switch to another user
+
+![alt text](image-1.png)
+Example:
+```
+su friday
+```
+---
+
+### `sudo groupadd name`
+To create the Group
+
+Example:
+```
+sudo groupadd devops
+```
+
+### `cat /etc/group`
+To check the group name
+
+Example:
+```
+cat /etc/group
+```
+
+### `sudo gpasswd -a username groupname`
+To add memebers in the group
+
+`-a` use flag to add
+
+**IMP- More like doing a append job keep the current users**
+Example:
+```
+sudo gpasswd -a jarvis devops
+```
+
+### `sudo gpasswd -M user1,user2 groupname`
+To add multiple user in the group.
+
+
+**IMP - It will overright the previous users
+It will remove the old users.
+Add new users list in the group**
+Example:
+```
+sudo gpasswd -M friday, monica devops
+
+```
+
+### `sudo groupdel groupname`
+To delete the group.
+
+Example:
+```
+sudo groupdel tester
+```
+
+---
+### `ctrl + r`
+To search the previous commands used in terminal.
+
+Example:
+![alt text](image.png)
+```
+ctrl + r
+```
+---
